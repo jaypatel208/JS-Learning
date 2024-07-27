@@ -112,3 +112,132 @@ function topSalary(salariesProblem) {
 }
 
 console.log(`Top earning person is ${topSalary(salariesProblem)}`)
+
+// Date and time
+
+let now = new Date();
+console.log(`current time is ${now}`)
+
+// 0 means 01.01.1970 UTC+0
+let Jan01_1970 = new Date(0);
+console.log(Jan01_1970);
+
+// now adding 24 hours
+let Jan02_1970 = new Date(24 * 3600 * 100);
+console.log(Jan02_1970);
+
+let date = new Date();
+console.log(date.getHours());
+console.log(date.getUTCHours());
+console.log(date.getTimezoneOffset());
+console.log(Date.now());
+
+// Create a Date object for the date: Feb 20, 2012, 3:12am. The time zone is local.
+let dateObj = new Date("February 20, 2012 03:12:00");
+console.log(dateObj);
+
+function getWeekDay(date) {
+    let day = date.getDay();
+    switch (day) {
+        case 0:
+            console.log("SUN");
+            break;
+        case 1:
+            console.log("MON");
+            break;
+        case 2:
+            console.log("TUE");
+            break;
+        case 3:
+            console.log("WED");
+            break;
+        case 4:
+            console.log("THU");
+            break;
+        case 5:
+            console.log("FRI");
+            break;
+        case 6:
+            console.log("SAT");
+            break;
+    }
+}
+
+getWeekDay(dateObj);
+
+function getWeekDayOptimized(date) {
+    const weekDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    return weekDays[date.getDay()];
+}
+
+console.log(`Day of date object is ${getWeekDayOptimized(dateObj)}`);
+
+// Turn the user into JSON and then read it back into another variable.
+
+let userTest = {
+    name: "John Smith",
+    age: 35
+};
+
+let stringifieduser = JSON.stringify(userTest);
+console.log(stringifieduser);
+let convertedUser = JSON.parse(stringifieduser);
+console.log(`User name ${convertedUser.name} and Age is ${convertedUser.age}`);
+
+// Advanced working with functions
+
+function pow(x, n) {
+    if (n == 1) {
+        return x;
+    } else {
+        return x * pow(x, n - 1);
+    }
+}
+
+console.log(`6 Power of 2 is: ${pow(2, 6)}`)
+
+function sumToforloop(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+function sumToRecursion(n) {
+    if (n == 1) return 1;
+    return n + sumToRecursion(n - 1);
+}
+
+
+function sumToArithmetic(n) {
+    return n * (n + 1) / 2;
+}
+
+console.log(`Sum of n elements using for loop:${sumToforloop(10)}`);
+console.log(`Sum of n elements using recursion:${sumToRecursion(15)}`);
+console.log(`Sum of n elements using arithmetic formula:${sumToArithmetic(20)}`);
+
+function factorial(n) {
+    if (n == 1) return 1;
+    return n * factorial(n - 1);
+}
+
+console.log(`Factorial of 3 is ${factorial(9)}`);
+
+function fib(n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+
+console.log(`Fibonacci of 7 is ${fib(7)}`);
+
+//  Rest parameters and spread syntax
+function sumAll(...args) { 
+    let sum = 0;
+    for (let arg of args) sum += arg;
+    return sum;
+  }
+  
+
+console.log(`Sum of 1 to 10 :${sumAll(10)}`);
